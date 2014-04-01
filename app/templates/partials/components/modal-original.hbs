@@ -1,0 +1,315 @@
+---
+title: Modal - Original
+slug: modal-original
+lead: "Lorem"
+base_url: "../"
+---
+<div class="alert alert-danger">
+TODO:
+<ul>
+	<li>Add All Modal Types (Animation etc.)</li>
+	<li>Correct all "external" links</li>
+	<li>Add global setting to remember scroll position because Snap!</li>
+</ul>
+</div>
+
+<!-- Modal
+	================================================== -->
+	<div class="bs-docs-section">
+		<div class="page-header">
+			<h1 id="modals">Modals <small>modal.js</small></h1>
+		</div>
+
+		<h2 id="modals-examples">Examples</h2>
+		<p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.</p>
+
+		<div class="bs-callout bs-callout-warning" id="callout-stacked-modals">
+			<h4>Overlapping modals not supported</h4>
+			<p>Be sure not to open a modal while another is still visible. Showing more than one modal at a time requires custom code.</p>
+		</div>
+		<div class="bs-callout bs-callout-warning">
+			<h4>Mobile device caveats</h4>
+			<p>There are some caveats regarding using modals on mobile devices. <a href="./getting-started#fixed-position-keyboards.html">See our browser support docs</a> for details.</p>
+		</div>
+
+		<h3>Static example</h3>
+		<p>A rendered modal with header, body, and set of actions in the footer.</p>
+		<div class="bs-example bs-example-modal">
+			<div class="modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							<p>One fine body&hellip;</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div><!-- /example -->
+
+{{#markdown}}
+```markup
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<p>One fine body&hellip;</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+```
+{{/markdown}}
+
+		<h3>Live demo</h3>
+		<p>Toggle a modal via JavaScript by clicking the button below. It will slide down and fade in from the top of the page.</p>
+
+		<div class="bs-example" style="padding-bottom: 24px;">
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+				Launch demo modal
+			</button>
+		</div><!-- /example -->
+
+{{#markdown}}
+```markup
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+{{/markdown}}
+
+
+
+		<div class="bs-callout bs-callout-warning">
+			<h4>Make modals accessible</h4>
+			<p>Be sure to add <code>role="dialog"</code> to <code>.modal</code>, <code>aria-labelledby="myModalLabel"</code> attribute to reference the modal title, and <code>aria-hidden="true"</code> to tell assistive technologies to skip the modal's DOM elements.</p>
+			<p>Additionally, you may give a description of your modal dialog with <code>aria-describedby</code> on <code>.modal</code>.</p>
+		</div>
+
+		<h2 id="modals-sizes">Optional sizes</h2>
+		<p>Modals have two optional sizes, available via modifier classes to be placed on a <code>.modal-dialog</code>.</p>
+		<div class="bs-example">
+			<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Large modal</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-sm">Small modal</button>
+		</div>
+
+{{#markdown}}
+```markup
+<!-- Large modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Large modal</button>
+
+<div class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			...
+		</div>
+	</div>
+</div>
+
+<!-- Small modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-sm">Small modal</button>
+
+<div class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			...
+		</div>
+	</div>
+</div>
+```
+{{/markdown}}
+
+		<h2 id="modals-usage">Usage</h2>
+		<p>The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also adds <code>.modal-open</code> to the <code>&lt;body&gt;</code> to override default scrolling behavior and generates a <code>.modal-backdrop</code> to provide a click area for dismissing shown modals when clicking outside the modal.</p>
+
+		<h3>Via data attributes</h3>
+		<p>Activate a modal without writing JavaScript. Set <code>data-toggle="modal"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific modal to toggle.</p>
+
+{{#markdown}}
+```markup
+<button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>
+```
+{{/markdown}}
+
+
+		<h3>Via JavaScript</h3>
+		<p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
+
+{{#markdown}}
+```javascript
+$('#myModal').modal(options)
+```
+{{/markdown}}
+
+
+		<h3>Options</h3>
+		<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th style="width: 100px;">Name</th>
+						<th style="width: 50px;">type</th>
+						<th style="width: 50px;">default</th>
+						<th>description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>backdrop</td>
+						<td>boolean or the string <code>'static'</code></td>
+						<td>true</td>
+						<td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
+					</tr>
+					<tr>
+						<td>keyboard</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Closes the modal when escape key is pressed</td>
+					</tr>
+					<tr>
+						<td>show</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Shows the modal when initialized.</td>
+					</tr>
+					<tr>
+						<td>remote</td>
+						<td>path</td>
+						<td>false</td>
+						<td><p>If a remote URL is provided, <strong>content will be loaded one time</strong> via jQuery's <code>load</code> method and injected into the root of the modal element. If you're using the data-api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
+
+							{{#markdown}}
+							```markup
+							<a data-toggle="modal" href="remote.html" data-target="#modal">Click me</a>
+							```
+							{{/markdown}}
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- /.table-responsive -->
+
+		<h3>Methods</h3>
+
+		<h4>.modal(options)</h4>
+		<p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
+
+{{#markdown}}
+```javascript
+$('#myModal').modal({
+keyboard: false
+})
+```
+{{/markdown}}
+
+
+	<h4>.modal('toggle')</h4>
+	<p>Manually toggles a modal. <strong>Returns to the caller before the modal has actually been shown or hidden</strong> (i.e. before the <code>shown.bs.modal</code> or <code>hidden.bs.modal</code> event occurs).</p>
+
+{{#markdown}}
+```javascript
+$('#myModal').modal('toggle')
+```
+{{/markdown}}
+
+
+	<h4>.modal('show')</h4>
+	<p>Manually opens a modal. <strong>Returns to the caller before the modal has actually been shown</strong> (i.e. before the <code>shown.bs.modal</code> event occurs).</p>
+
+{{#markdown}}
+```javascript
+$('#myModal').modal('show')
+```
+{{/markdown}}
+
+
+	<h4>.modal('hide')</h4>
+	<p>Manually hides a modal. <strong>Returns to the caller before the modal has actually been hidden</strong> (i.e. before the <code>hidden.bs.modal</code> event occurs).</p>
+
+{{#markdown}}
+```javascript
+$('#myModal').modal('hide')
+```
+{{/markdown}}
+
+
+	<h3>Events</h3>
+	<p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th style="width: 150px;">Event Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>show.bs.modal</td>
+					<td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+				</tr>
+				<tr>
+					<td>shown.bs.modal</td>
+					<td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+				</tr>
+				<tr>
+					<td>hide.bs.modal</td>
+					<td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+				</tr>
+				<tr>
+					<td>hidden.bs.modal</td>
+					<td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+				</tr>
+			</tbody>
+		</table>
+	</div><!-- /.table-responsive -->
+
+{{#markdown}}
+```javascript
+$('#myModal').on('hidden.bs.modal', function (e) {
+// do something...
+})
+```
+{{/markdown}}
+
+</div>
+
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-primary">Large modal</button>

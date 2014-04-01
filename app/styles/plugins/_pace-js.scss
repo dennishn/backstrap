@@ -1,0 +1,57 @@
+.pace {
+	box-sizing: border-box;
+	background-clip: padding-box;
+
+
+
+	z-index: 2000;
+	position: fixed;
+	margin: auto;
+	top: 12px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	height: 25px;
+	border: 2px solid $brand-primary;
+	background-color: #fff;
+}
+
+body.pace-running {
+	&:before {
+  		content: '';
+  		position: absolute;
+  		width: 100%;
+  		height: 100%;
+  		background: #fff;
+  		z-index: 1999;
+	}
+}
+
+.pace .pace-progress {
+	box-sizing: border-box;
+	background-clip: padding-box;
+	transition: width 1s ease-in-out 1s linear;
+	transform: translate3d(0, 0, 0);
+	max-width: 190px;
+	position: fixed;
+	z-index: 2000;
+	display: block;
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	height: 15px;
+	font-size: 12px;
+	background: $brand-primary;
+	color: $brand-primary;
+	line-height: 60px;
+}
+
+.pace .pace-progress:after {
+	content: attr(data-progress-text);
+	display: inline-block;
+}
+
+.pace.pace-inactive {
+	display: none;
+}

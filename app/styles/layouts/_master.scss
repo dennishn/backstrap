@@ -1,0 +1,15 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.side-bars {
+	top: $navbar-height;
+	background: $gray-lighter;
+}
+.content-area {
+	top: $navbar-height;
+	background: #fff;
+}

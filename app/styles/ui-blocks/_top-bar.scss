@@ -1,0 +1,68 @@
+.navbar-default {
+	.navbar-brand {
+		width: 100%;
+		background: $brand-primary;
+		color: #fff;
+		@media #{$medium-up} {
+			width: $sidebar-width;
+		}
+		&:hover {
+			color: #fff;
+			background: $brand-primary;
+		}
+	}
+	.navbar-toggle {
+		position: absolute;
+		float: none;
+		right: 15px;
+		margin-right: 0;
+		background: $brand-primary;
+		border-color: darken($brand-primary, 15%);
+		.icon-bar {
+			background: darken($brand-primary, 15%);
+		}
+		&:hover {
+			background: darken($brand-primary, 5%);
+		}
+	}
+}
+
+// Breadcrumbs
+.navbar .btn-breadcrumb {
+	.btn {
+		padding:$navbar-padding-horizontal 12px $navbar-padding-horizontal 24px;
+		background: $navbar-default-bg;
+		border-top: none;
+		border-bottom: none;
+		border-radius: 0;
+	}
+	.btn:not(:last-child):after {
+		margin-top: -$navbar-height/2;
+		border-top: $navbar-height/2 solid transparent;
+		border-bottom: $navbar-height/2 solid transparent;
+		border-left: 10px solid $navbar-default-bg;
+	}
+	.btn:not(:last-child):before {
+		margin-top: -$navbar-height/2;
+		border-top: $navbar-height/2 solid transparent;
+		border-bottom: $navbar-height/2 solid transparent;
+		border-left: 10px solid $navbar-default-border;
+	}
+	.btn:first-child {
+		padding:$navbar-padding-horizontal 6px $navbar-padding-horizontal 10px;
+		border-left: none;
+	}
+	.btn:last-child {
+		padding:$navbar-padding-horizontal 18px $navbar-padding-horizontal 24px;
+		border-right: none;
+	}
+}
+// Triangle hovers
+//"bg"
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+	border-left: 10px solid $navbar-default-bg;
+}
+//"border"
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+	border-left: 10px solid darken($navbar-default-border, 5%);
+}

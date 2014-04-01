@@ -1,0 +1,15 @@
+{
+  "name": "backstrap",
+  "version": "0.0.0",
+  "dependencies": {
+    "sass-bootstrap": "~3.0.0",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "snapjs": "*",
+    "pace": "~0.5.1",
+    "prism": "gh-pages",
+    "animate.css": "~3.1.0",
+    "jquery-waypoints": "~2.0.4"
+  },
+  "devDependencies": {}
+}
